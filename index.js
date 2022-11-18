@@ -21,11 +21,10 @@ const io = new Server(server, {
   },
 })
 
-app.post('/names', (req, res) => {
-  const { body } = req
+app.get('/names', (req, res) => {
+  const { query } = req
 
-  body.name
-  if(names.some(name => name === body.name)) {
+  if(names.some(name => name === query.name)) {
     res.json(true)
   } else {
     res.json(false)
